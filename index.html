@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern School - Empowering Education</title>
+
+<!-- Internal CSS Styling -->
+<style>
+/* ===== General Styling ===== */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #333;
+background-color: #f4f4f4;
+}
+
+/* ===== Header & Navigation ===== */
+header {
+background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+color: white;
+padding: 1rem 0;
+position: sticky;
+top: 0;
+z-index: 100;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.school-name {
+font-size: 1.8rem;
+font-weight: bold;
+letter-spacing: 1px;
+}
+
+/* Navigation Menu */
+nav ul {
+list-style: none;
+display: flex;
+gap: 2rem;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+font-weight: 500;
+transition: all 0.3s ease;
+padding: 0.5rem 1rem;
+border-radius: 4px;
+}
+
+nav a:hover {
+background-color: rgba(255, 255, 255, 0.2);
+transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+display: none;
+background: none;
+border: none;
+color: white;
+font-size: 1.5rem;
+cursor: pointer;
+}
+
+/* ===== Main Content Container ===== */
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+/* ===== Section Styling ===== */
+section {
+padding: 4rem 20px;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+section.hidden {
+display: none;
+}
+
+section.active {
+display: flex;
+}
+
+.section-content {
+width: 100%;
+max-width: 1200px;
+}
+
+h2 {
+font-size: 2.5rem;
+color: #0066cc;
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+/* ===== Home Section ===== */
+#home {
+background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+color: white;
+}
+
+.home-content {
+text-align: center;
+}
+
+.welcome-title {
+font-size: 3rem;
+margin-bottom: 1rem;
+animation: slideDown 0.8s ease;
+}
+
+.welcome-message {
+font-size: 1.3rem;
+margin-bottom: 2rem;
+opacity: 0.95;
+}
+
+.banner-image {
+width: 100%;
+max-width: 500px;
+height: 300px;
+background: linear-gradient(45deg, #66b3ff, #80bfff);
+border-radius: 10px;
+margin: 2rem auto;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 3rem;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-button {
+background-color: #ff9800;
+color: white;
+padding: 1rem 2rem;
+border: none;
+border-radius: 50px;
+font-size: 1rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+margin-top: 1rem;
+}
+
+.welcome-button:hover {
+background-color: #e68900;
+transform: scale(1.05);
+box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+}
+
+.welcome-button:active {
+transform: scale(0.98);
+}
+
+/* Animation */
+@keyframes slideDown {
+from {
+opacity: 0;
+transform: translateY(-30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* ===== About Section ===== */
+#about {
+background-color: #f9f9f9;
+}
+
+.about-content {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 3rem;
+align-items: center;
+}
+
+.about-text h3 {
+color: #0066cc;
+margin-bottom: 1rem;
+font-size: 1.5rem;
+}
+
+.about-text p {
+margin-bottom: 1rem;
+line-height: 1.8;
+color: #555;
+}
+
+.about-image {
+background: linear-gradient(45deg, #66b3ff, #80bfff);
+height: 300px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 4rem;
+box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
+}
+
+/* ===== Courses Section ===== */
+#courses {
+background-color: white;
+}
+
+.courses-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 2rem;
+margin-top: 2rem;
+}
+
+.course-card {
+background: white;
+border: 2px solid #e0e0e0;
+border-radius: 10px;
+padding: 2rem;
+text-align: center;
+transition: all 0.3s ease;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-card:hover {
+border-color: #0066cc;
+transform: translateY(-10px);
+box-shadow: 0 10px 25px rgba(0, 102, 204, 0.2);
+}
+
+.course-icon {
+font-size: 3rem;
+margin-bottom: 1rem;
+}
+
+.course-card h3 {
+color: #0066cc;
+margin-bottom: 1rem;
+font-size: 1.3rem;
+}
+
+.course-card p {
+color: #666;
+margin-bottom: 1rem;
+}
+
+.course-button {
+background-color: #0066cc;
+color: white;
+padding: 0.7rem 1.5rem;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+
+.course-button:hover {
+background-color: #0052a3;
+transform: scale(1.05);
+}
+
+/* ===== Contact Section ===== */
+#contact {
+background-color: #f9f9f9;
+}
+
+.contact-container {
+max-width: 600px;
+margin: 0 auto;
+background: white;
+padding: 3rem;
+border-radius: 10px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+margin-bottom: 1.5rem;
+}
+
+label {
+display: block;
+margin-bottom: 0.5rem;
+color: #0066cc;
+font-weight: bold;
+}
+
+input,
+textarea {
+width: 100%;
+padding: 0.8rem;
+border: 2px solid #e0e0e0;
+border-radius: 5px;
+font-family: inherit;
+font-size: 1rem;
+transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+outline: none;
+border-color: #0066cc;
+}
+
+textarea {
+resize: vertical;
+min-height: 120px;
+}
+
+.error-message {
+color: #d32f2f;
+font-size: 0.9rem;
+margin-top: 0.3rem;
+}
+
+.submit-button {
+width: 100%;
+background-color: #0066cc;
+color: white;
+padding: 1rem;
+border: none;
+border-radius: 5px;
+font-size: 1rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+background-color: #0052a3;
+transform: scale(1.02);
+}
+
+.submit-button:active {
+transform: scale(0.98);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+nav ul {
+gap: 1rem;
+font-size: 0.9rem;
+}
+
+nav a {
+padding: 0.3rem 0.7rem;
+}
+
+.welcome-title {
+font-size: 2rem;
+}
+
+h2 {
+font-size: 2rem;
+}
+
+.about-content {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+.about-image {
+height: 250px;
+}
+
+section {
+padding: 2rem 20px;
+min-height: auto;
+}
+
+.contact-container {
+padding: 2rem;
+}
+}
+
+@media (max-width: 600px) {
+.header-container {
+flex-direction: column;
+gap: 1rem;
+}
+
+.school-name {
+font-size: 1.4rem;
+}
+
+nav ul {
+flex-direction: column;
+gap: 0.5rem;
+text-align: center;
+}
+
+nav a {
+display: block;
+padding: 0.5rem;
+}
+
+.welcome-title {
+font-size: 1.5rem;
+}
+
+.welcome-message {
+font-size: 1rem;
+}
+
+.banner-image {
+height: 200px;
+font-size: 2rem;
+}
+
+h2 {
+font-size: 1.6rem;
+}
+
+.courses-grid {
+grid-template-columns: 1fr;
+}
+
+.contact-container {
+padding: 1.5rem;
+}
+}
+</style>
+</head>
+<body>
+<!-- ===== HEADER WITH NAVIGATION ===== -->
+<header>
+<div class="header-container">
+<div class="school-name">📚 Modern School</div>
+<nav>
+<ul>
+<li><a href="#" onclick="showSection('home')">Home</a></li>
+<li><a href="#" onclick="showSection('about')">About</a></li>
+<li><a href="#" onclick="showSection('courses')">Courses</a></li>
+<li><a href="#" onclick="showSection('contact')">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- ===== HOME SECTION ===== -->
+<section id="home" class="active">
+<div class="section-content">
+<div class="home-content">
+<h1 class="welcome-title">Welcome to Modern School</h1>
+<p class="welcome-message">Empowering students with quality education and innovative learning</p>
+<div class="banner-image">📚</div>
+<button class="welcome-button" onclick="displayWelcomeMessage()">
+Welcome Message
+</button>
+</div>
+</div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about" class="hidden">
+<div class="section-content">
+<h2>About Our School</h2>
+<div class="about-content">
+<div class="about-text">
+<h3>Who We Are</h3>
+<p>
+Modern School is a leading educational institution dedicated to providing excellence
+in academic and personal development. With over 20 years of experience, we have helped
+thousands of students achieve their dreams.
+</p>
+<h3>Our Mission</h3>
+<p>
+To provide world-class education that develops critical thinking, creativity, and
+character in every student, preparing them for success in a rapidly changing world.
+</p>
+<h3>Our Vision</h3>
+<p>
+To be recognized as a beacon of educational excellence, fostering innovation,
+integrity, and lifelong learning in all our students.
+</p>
+</div>
+<div class="about-image">🏫</div>
+</div>
+</div>
+</section>
+
+<!-- ===== COURSES SECTION ===== -->
+<section id="courses" class="hidden">
+<div class="section-content">
+<h2>Our Courses</h2>
+<div class="courses-grid">
+<!-- Course 1 -->
+<div class="course-card">
+<div class="course-icon">📖</div>
+<h3>English Literature</h3>
+<p>
+Explore classic and contemporary literature. Develop critical reading and
+writing skills through engaging texts and discussions.
+</p>
+<button class="course-button">Learn More</button>
+</div>
+
+<!-- Course 2 -->
+<div class="course-card">
+<div class="course-icon">🔬</div>
+<h3>Science & Technology</h3>
+<p>
+Discover the wonders of science through practical experiments and modern
+laboratory equipment. From physics to biology.
+</p>
+<button class="course-button">Learn More</button>
+</div>
+
+<!-- Course 3 -->
+<div class="course-card">
+<div class="course-icon">🧮</div>
+<h3>Mathematics</h3>
+<p>
+Master problem-solving and analytical thinking. From algebra to calculus,
+build a strong foundation in mathematical principles.
+</p>
+<button class="course-button">Learn More</button>
+</div>
+
+<!-- Course 4 -->
+<div class="course-card">
+<div class="course-icon">💻</div>
+<h3>Information Technology</h3>
+<p>
+Learn programming, web development, and digital skills for the modern world.
+Hands-on training with industry-standard tools.
+</p>
+<button class="course-button">Learn More</button>
+</div>
+
+<!-- Course 5 -->
+<div class="course-card">
+<div class="course-icon">🎨</div>
+<h3>Creative Arts</h3>
+<p>
+Express yourself through visual arts, music, and design. Develop your creative
+talents with guidance from experienced instructors.
+</p>
+<button class="course-button">Learn More</button>
+</div>
+
+<!-- Course 6 -->
+<div class="course-card">
+<div class="course-icon">⚽</div>
+<h3>Physical Education</h3>
+<p>
+Stay active and healthy. Learn various sports, fitness techniques, and
+teamwork through our comprehensive PE program.
+</p>
+<button class="course-button">Learn More</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section id="contact" class="hidden">
+<div class="section-content">
+<h2>Contact Us</h2>
+<div class="contact-container">
+<form id="contactForm" onsubmit="handleFormSubmit(event)">
+<!-- Name Field -->
+<div class="form-group">
+<label for="name">Full Name</label>
+<input type="text" id="name" placeholder="Enter your full name" required>
+<span class="error-message" id="nameError"></span>
+</div>
+
+<!-- Email Field -->
+<div class="form-group">
+<label for="email">Email Address</label>
+<input type="email" id="email" placeholder="Enter your email address" required>
+<span class="error-message" id="emailError"></span>
+</div>
+
+<!-- Message Field -->
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" placeholder="Write your message here..." required></textarea>
+<span class="error-message" id="messageError"></span>
+</div>
+
+<!-- Submit Button -->
+<button type="submit" class="submit-button">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// ===== Function to Show/Hide Sections =====
+// This function handles switching between different sections when navigation links are clicked
+function showSection(sectionId) {
+// Get all sections and hide them
+const sections = document.querySelectorAll('section');
+sections.forEach(section => {
+section.classList.remove('active');
+section.classList.add('hidden');
+});
+
+// Show the selected section
+const selectedSection = document.getElementById(sectionId);
+selectedSection.classList.remove('hidden');
+selectedSection.classList.add('active');
+
+// Scroll to top smoothly
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===== Function to Display Welcome Message =====
+// This is an interactive feature that displays a welcome message when button is clicked
+function displayWelcomeMessage() {
+alert('🎉 Welcome to Modern School!\n\nWe are excited to have you here. This is your gateway to quality education and personal growth.\n\nFeel free to explore our courses and get in touch with us!');
+}
+
+// ===== Function to Validate Form Inputs =====
+// Checks if all required fields are filled and email format is valid
+function validateForm() {
+// Get form inputs
+const name = document.getElementById('name').value.trim();
+const email = document.getElementById('email').value.trim();
+const message = document.getElementById('message').value.trim();
+
+// Clear previous error messages
+document.getElementById('nameError').textContent = '';
+document.getElementById('emailError').textContent = '';
+document.getElementById('messageError').textContent = '';
+
+// Flag to track if form is valid
+let isValid = true;
+
+// Validate Name (cannot be empty)
+if (name === '') {
+document.getElementById('nameError').textContent = '❌ Please enter your full name';
+isValid = false;
+}
+
+// Validate Email (cannot be empty and must be in valid format)
+if (email === '') {
+document.getElementById('emailError').textContent = '❌ Please enter your email address';
+isValid = false;
+} else if (!isValidEmail(email)) {
+document.getElementById('emailError').textContent = '❌ Please enter a valid email address';
+isValid = false;
+}
+
+// Validate Message (cannot be empty)
+if (message === '') {
+document.getElementById('messageError').textContent = '❌ Please enter your message';
+isValid = false;
+}
+
+return isValid;
+}
+
+// ===== Function to Check Email Format =====
+// Uses regular expression to validate email format
+function isValidEmail(email) {
+// Regular expression pattern for email validation
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+return emailPattern.test(email);
+}
+
+// ===== Function to Handle Form Submission =====
+// Called when the contact form is submitted
+function handleFormSubmit(event) {
+// Prevent the default form submission behavior
+event.preventDefault();
+
+// Validate form before submission
+if (validateForm()) {
+// Get form values
+const name = document.getElementById('name').value;
+
+// Show success alert with user's name
+alert(`✅ Thank you, ${name}!\n\nYour message has been sent successfully.\n\nWe will get back to you soon!`);
+
+// Reset the form fields after successful submission
+document.getElementById('contactForm').reset();
+
+// Clear any error messages
+document.getElementById('nameError').textContent = '';
+document.getElementById('emailError').textContent = '';
+document.getElementById('messageError').textContent = '';
+}
+// If validation fails, error messages are already displayed
+}
+
+// ===== Add Event Listeners for Course Buttons =====
+// This adds click functionality to all "Learn More" buttons in the courses section
+document.addEventListener('DOMContentLoaded', function() {
+const courseButtons = document.querySelectorAll('.course-button');
+courseButtons.forEach(button => {
+button.addEventListener('click', function() {
+alert('Thank you for your interest! Please contact us for more information about this course.');
+});
+});
+});
+</script>
+</body>
+</html>
