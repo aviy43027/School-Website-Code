@@ -1,1 +1,1 @@
-# School-Website-Code
+# School-Website-Code Activity for CSE-121
